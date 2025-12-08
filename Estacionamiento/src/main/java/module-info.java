@@ -12,6 +12,8 @@ module com.example {
     requires com.almasb.fxgl.all;
     requires java.sql;
 
-    opens com.example to javafx.fxml;
+    exports com.example.App;
     exports com.example.Models;
+    opens com.example.App to javafx.fxml, javafx.graphics;
+    opens com.example.Controllers to javafx.fxml;
 }

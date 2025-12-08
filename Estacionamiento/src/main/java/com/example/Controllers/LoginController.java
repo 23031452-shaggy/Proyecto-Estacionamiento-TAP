@@ -32,7 +32,7 @@ public class LoginController {
     private void abrirMenuPrincipal() {
         try {
             Stage stage = (Stage) txtPlaca.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/Views/MenuView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/MenuView.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
             stage.setTitle("Menú Principal");
