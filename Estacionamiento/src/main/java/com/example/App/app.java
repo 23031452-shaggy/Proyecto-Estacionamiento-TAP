@@ -13,7 +13,7 @@ public class app extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/LoginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Sistema de Estacionamiento - Login");
+        stage.setTitle("Sistema de Estacionamiento");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

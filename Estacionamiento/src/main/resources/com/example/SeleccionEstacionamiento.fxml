@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20.0" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controllers.SeleccionEstacionamientoController">
+
+    <Label text="Seleccione el Estacionamiento">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+
+    <HBox alignment="CENTER" spacing="20.0">
+        <Button text="Estacionamiento A" onAction="#onEstacionamientoAClick" prefWidth="120" prefHeight="100" style="-fx-background-color: lightblue;" />
+        <Button text="Estacionamiento B" onAction="#onEstacionamientoBClick" prefWidth="120" prefHeight="100" style="-fx-background-color: lightgreen;" />
+        <Button text="Estacionamiento C" onAction="#onEstacionamientoCClick" prefWidth="120" prefHeight="100" style="-fx-background-color: lightpink;" />
+    </HBox>
+
+</VBox>

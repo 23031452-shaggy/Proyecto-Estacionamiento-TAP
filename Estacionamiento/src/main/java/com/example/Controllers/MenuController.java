@@ -1,6 +1,8 @@
 package com.example.Controllers;
 
 import com.example.DataAccess.OperacionesDAO;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,20 +16,24 @@ public class MenuController {
     private final OperacionesDAO opDAO = new OperacionesDAO();
 
     @FXML
-    public void onRegistrarEntradaClick() {
+    public void onRegistrarEntradaClick(ActionEvent event) {
         try {
-            Stage stage = (Stage) new Button().getScene().getWindow();
+            Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/Views/SeleccionEstacionamiento.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/SeleccionEstacionamiento.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            Stage currentStage = (Stage) Stage.getWindows().stream().filter(Window::isShowing).findFirst().orElse(null);
-            if(currentStage != null) currentStage.setScene(scene);
 
-        } catch (Exception e) { e.printStackTrace(); }
+            stage.setScene(scene);
+            stage.setTitle("Selección de Estacionamiento");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    public void onRegistrarSalidaClick() {
+    public void onRegistrarSalidaClick(ActionEvent event) {
         String resultado = opDAO.registrarSalida();
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
