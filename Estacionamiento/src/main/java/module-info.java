@@ -10,7 +10,8 @@ module com.example {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens com.example to javafx.fxml;
-    exports com.example;
+    exports com.example.Models;
 }
