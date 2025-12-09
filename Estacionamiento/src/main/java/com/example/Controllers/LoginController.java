@@ -7,12 +7,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
 public class LoginController {
 
     @FXML private TextField txtIdentificador;
     @FXML private TextField txtPlaca;
+    @FXML private PasswordField txtPassword;
 
     private final AuthDAO authDAO = new AuthDAO();
 
@@ -20,8 +22,12 @@ public class LoginController {
     public void onBtnIngresarClick() {
         String id = txtIdentificador.getText();
         String placa = txtPlaca.getText();
-
-        if (authDAO.validarLogin(id, placa)) {
+        String pass = txtPassword.getText();
+        if (id.isEmpty() || placa.isEmpty() || pass.isEmpty()) {
+            mostrarAlerta("Campos vacíos", "Por favor llene todos los campos.");
+            return;
+        }
+        if (authDAO.validarLogin(id, placa, pass)) {
             UserSession.getInstance().setSession(placa, 0);
             abrirMenuPrincipal();
         } else {
