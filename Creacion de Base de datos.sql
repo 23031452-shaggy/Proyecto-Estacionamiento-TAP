@@ -1,3 +1,4 @@
+DROP DATABASE adminestacionamiento;
 CREATE DATABASE AdminEstacionamiento;
 USE AdminEstacionamiento;
 
@@ -20,6 +21,7 @@ CREATE TABLE Lugares (
 CREATE TABLE Personas (
     noCont INT NOT NULL,
     nombre VARCHAR(150) NOT NULL,
+    hashPass VARCHAR(300),
     telefono VARCHAR (15),
     CONSTRAINT PersonasPK PRIMARY KEY (noCont)
 );
@@ -31,7 +33,7 @@ CREATE TABLE Vehiculos (
     marca VARCHAR(50),
     modelo VARCHAR(50),
     color VARCHAR(30),
-    PRIMARY KEY (placa),
+    CONSTRAINT VehiculosPK PRIMARY KEY (placa),
     CONSTRAINT VehiculosFK FOREIGN KEY (noCont) REFERENCES Personas(noCont)
 	ON DELETE CASCADE ON UPDATE CASCADE
 );

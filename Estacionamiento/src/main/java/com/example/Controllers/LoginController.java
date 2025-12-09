@@ -2,6 +2,7 @@ package com.example.Controllers;
 
 import com.example.DataAccess.AuthDAO;
 import com.example.Models.UserSession;
+import com.example.Utils.AlertaUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,14 +25,14 @@ public class LoginController {
         String placa = txtPlaca.getText();
         String pass = txtPassword.getText();
         if (id.isEmpty() || placa.isEmpty() || pass.isEmpty()) {
-            mostrarAlerta("Campos vacíos", "Por favor llene todos los campos.");
+            AlertaUtils.mostrarAlerta("Campos vacíos", "Por favor llene todos los campos.");
             return;
         }
         if (authDAO.validarLogin(id, placa, pass)) {
             UserSession.getInstance().setSession(placa, 0);
             abrirMenuPrincipal();
         } else {
-            mostrarAlerta("Error", "Datos incorrectos o vehículo no corresponde.");
+            AlertaUtils.mostrarAlerta("Error", "Datos incorrectos o vehículo no corresponde.");
         }
     }
 
@@ -45,11 +46,4 @@ public class LoginController {
         } catch (Exception e) { e.printStackTrace(); }
     }
 
-    private void mostrarAlerta(String titulo, String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
-    }
 }

@@ -2,6 +2,7 @@ package com.example.Controllers;
 
 import com.example.DataAccess.OperacionesDAO;
 import com.example.Models.Lugar;
+import com.example.Utils.AlertaUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -58,10 +59,10 @@ public class MapaLugaresController {
             boolean exito = opDAO.registrarEntrada(idLugar, idEstacionamientoActual);
 
             if (exito) {
-                mostrarInfo("Entrada marcada con éxito");
+                AlertaUtils.mostrarInfo("Entrada marcada con éxito");
                 cargarLugares();
             } else {
-                mostrarInfo("Error al registrar entrada");
+                AlertaUtils.mostrarInfo("Error al registrar entrada");
             }
         }
     }
@@ -76,11 +77,5 @@ public class MapaLugaresController {
 
             stage.setScene(scene);
         } catch (Exception e) { e.printStackTrace(); }
-    }
-
-    private void mostrarInfo(String msj) {
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setContentText(msj);
-        a.show();
     }
 }
