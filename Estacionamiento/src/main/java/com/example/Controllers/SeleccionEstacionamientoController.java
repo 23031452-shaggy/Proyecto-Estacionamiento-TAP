@@ -28,7 +28,7 @@ public class SeleccionEstacionamientoController {
 
     private void abrirMapaLugares(ActionEvent event, int idEst, String nombre) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/Views/MapaLugares.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/MapaLugares.fxml"));
             Scene scene = new Scene(loader.load());
 
             MapaLugaresController controller = loader.getController();
